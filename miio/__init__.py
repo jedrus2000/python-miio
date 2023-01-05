@@ -28,6 +28,7 @@ from miio.airqualitymonitor import AirQualityMonitor
 from miio.airqualitymonitor_miot import AirQualityMonitorCGDN1
 from miio.aqaracamera import AqaraCamera
 from miio.chuangmi_camera import ChuangmiCamera
+from miio.mi_camera_hlc7_miot import MiCameraHlc7Miot
 from miio.chuangmi_ir import ChuangmiIr
 from miio.chuangmi_plug import ChuangmiPlug
 from miio.cloud import CloudInterface

@@ -1,0 +1,152 @@
+Device 'urn:miot-spec-v2:device:camera:0000A01C:isa-hlc7:2': Camera with 9 services
+
+* Service siid 1: (Device Information): 5 props, 0 actions
+
+        ## Properties ##
+                siid 1: piid: 1 (Device Manufacturer): (string, unit: None) (acc: ['read'])
+                siid 1: piid: 2 (Device Model): (string, unit: None) (acc: ['read'])
+                siid 1: piid: 3 (Device ID): (string, unit: None) (acc: ['read'])
+                siid 1: piid: 4 (Current Firmware Version): (string, unit: None) (acc: ['read'])
+                siid 1: piid: 5 (Serial Number): (string, unit: None) (acc: ['read', 'notify'])
+
+* Service siid 2: (Camera Control): 5 props, 0 actions
+
+        ## Properties ##
+                siid 2: piid: 1 (Switch Status): (bool, unit: None) (acc: ['read', 'write', 'notify'])
+                siid 2: piid: 2 (Image Rollover): (uint16, unit: arcdegrees) (acc: ['read', 'write', 'notify'])
+                        Range: [0, 360, 180]
+                siid 2: piid: 3 (Night Shot): (uint8, unit: None) (acc: ['read', 'write', 'notify'])
+                        {'value': 0, 'description': 'Off'}
+                        {'value': 1, 'description': 'On'}
+                        {'value': 2, 'description': 'Auto'}
+                siid 2: piid: 4 (Time Watermark): (bool, unit: None) (acc: ['read', 'write', 'notify'])
+                siid 2: piid: 7 (Recording Mode): (uint8, unit: none) (acc: ['read', 'write', 'notify'])
+                        {'value': 0, 'description': 'Continue Record'}
+                        {'value': 1, 'description': 'Dynamic Record'}
+                        {'value': 2, 'description': 'Stop Record'}
+
+* Service siid 3: (Indicator Light): 1 props, 0 actions
+
+        ## Properties ##
+                siid 3: piid: 1 (Switch Status): (bool, unit: None) (acc: ['read', 'write', 'notify'])
+
+* Service siid 4: (Memory Card Management): 4 props, 2 actions
+
+        ## Properties ##
+                siid 4: piid: 1 (Status): (uint8, unit: none) (acc: ['read', 'notify'])
+                        {'value': 0, 'description': 'SD-Nomal'}
+                        {'value': 1, 'description': 'SD-No-Inset'}
+                        {'value': 2, 'description': 'SD-No-Space'}
+                        {'value': 3, 'description': 'SD-No-Work'}
+                        {'value': 4, 'description': 'SD-Format'}
+                        {'value': 5, 'description': 'SD-Out'}
+                siid 4: piid: 2 (Storage Total Space): (int32, unit: none) (acc: ['read', 'notify'])
+                        Range: [0, 268435456, 1]
+                siid 4: piid: 3 (Storage Free Space): (int32, unit: none) (acc: ['read', 'notify'])
+                        Range: [0, 268435456, 1]
+                siid 4: piid: 4 (Storage Used Space): (int32, unit: none) (acc: ['read', 'notify'])
+                        Range: [0, 268435456, 1]
+
+        ## Actions ##
+                siid 4: aiid 1 Format: in: [] -> out: []
+                siid 4: aiid 2 Pop Up: in: [] -> out: []
+
+* Service siid 5: (Motion Detection): 5 props, 0 actions
+
+        ## Properties ##
+                siid 5: piid: 1 (Motion Detection): (bool, unit: None) (acc: ['read', 'write', 'notify'])
+                siid 5: piid: 2 (Alarm Interval): (uint8, unit: minutes) (acc: ['read', 'write', 'notify'])
+                        Range: [1, 30, 1]
+                siid 5: piid: 3 (Detection Sensitivity): (uint8, unit: none) (acc: ['read', 'write', 'notify'])
+                        {'value': 1, 'description': 'Low'}
+                        {'value': 2, 'description': 'Middle'}
+                        {'value': 3, 'description': 'Hight'}
+                siid 5: piid: 4 (Motion Detection Start Time): (string, unit: None) (acc: ['read', 'write', 'notify'])
+                siid 5: piid: 5 (Motion Detection End Time): (string, unit: None) (acc: ['read', 'write', 'notify'])
+
+* Service siid 7: (P2P Stream): 0 props, 2 actions
+
+        ## Actions ##
+                siid 7: aiid 1 Start P2P Stream: in: [] -> out: []
+                siid 7: aiid 2 Stop Camera Stream: in: [] -> out: []
+
+* Service siid 8: (Camera Stream Management for Amazon Alexa): 9 props, 3 actions
+
+        ## Properties ##
+                siid 8: piid: 1 (Video Codec Type): (uint8, unit: None) (acc: [])
+                        {'value': 1, 'description': 'H265'}
+                siid 8: piid: 2 (Video Attribute): (uint8, unit: None) (acc: [])
+                        {'value': 1, 'description': '1920_1080_30'}
+                siid 8: piid: 3 (Audio Codec Type): (uint8, unit: None) (acc: [])
+                        {'value': 1, 'description': 'PCMU'}
+                siid 8: piid: 4 (Audio Attribute): (uint8, unit: None) (acc: [])
+                        {'value': 2, 'description': '8000_1_8_CONSTANT'}
+                siid 8: piid: 5 (Authorization Type): (uint8, unit: None) (acc: [])
+                        {'value': 0, 'description': 'None'}
+                        {'value': 1, 'description': 'Basic'}
+                        {'value': 2, 'description': 'Digest'}
+                siid 8: piid: 6 (Stream URL): (string, unit: None) (acc: [])
+                siid 8: piid: 7 (Image Snapshot URL): (string, unit: None) (acc: [])
+                siid 8: piid: 8 (Expiration Time): (uint32, unit: seconds) (acc: [])
+                        Range: [0, 3600, 3600]
+                siid 8: piid: 9 (Stream Status): (uint8, unit: None) (acc: ['read', 'notify'])
+                        {'value': 1, 'description': 'Available'}
+                        {'value': 2, 'description': 'In use'}
+                        {'value': 3, 'description': 'Unavailable'}
+
+        ## Actions ##
+                siid 8: aiid 1 Start Camera Stream for Alexa: in: [2] -> out: [6]
+                siid 8: aiid 2 Stop Camera Stream: in: [] -> out: []
+                siid 8: aiid 3 Get Stream Configuration of Camera: in: [] -> out: [9, 1, 2, 3, 4]
+
+* Service siid 9: (Camera Stream Management for Google Home): 9 props, 3 actions
+
+        ## Properties ##
+                siid 9: piid: 1 (Video Codec Type): (uint8, unit: None) (acc: [])
+                        {'value': 1, 'description': 'H265'}
+                siid 9: piid: 2 (Video Attribute): (uint8, unit: None) (acc: [])
+                        {'value': 1, 'description': '1920_1080_30'}
+                siid 9: piid: 3 (Audio Codec Type): (uint8, unit: None) (acc: [])
+                        {'value': 1, 'description': 'PCMU'}
+                siid 9: piid: 4 (Audio Attribute): (uint8, unit: None) (acc: [])
+                        {'value': 2, 'description': '8000_1_8_CONSTANT'}
+                siid 9: piid: 5 (Stream URL): (string, unit: None) (acc: [])
+                siid 9: piid: 6 (Stream Receiver id): (string, unit: None) (acc: [])
+                siid 9: piid: 7 (Stream Auth Token): (string, unit: None) (acc: [])
+                siid 9: piid: 8 (Expiration Time): (uint32, unit: seconds) (acc: [])
+                        Range: [0, 3600, 3600]
+                siid 9: piid: 9 (Stream Status): (uint8, unit: None) (acc: ['read', 'notify'])
+                        {'value': 1, 'description': 'Available'}
+                        {'value': 2, 'description': 'In use'}
+                        {'value': 3, 'description': 'Unavailable'}
+
+        ## Actions ##
+                siid 9: aiid 1 Start Camera Stream for Google: in: [2] -> out: [5]
+                siid 9: aiid 2 Stop Camera Stream: in: [] -> out: []
+                siid 9: aiid 3 Get Stream Configuration of Camera: in: [] -> out: [9, 1, 2, 3, 4]
+
+* Service siid 6: (other-functions): 8 props, 4 actions
+
+        ## Properties ##
+                siid 6: piid: 2 (hl-set-timezone): (int32, unit: none) (acc: ['read', 'notify', 'write'])
+                        Range: [-12, 12, 1]
+                siid 6: piid: 3 (hl-set-rect): (bool, unit: none) (acc: ['read', 'notify', 'write'])
+                siid 6: piid: 4 (hl-get-custom-voice): (string, unit: none) (acc: ['read', 'notify'])
+                siid 6: piid: 5 (hl-set-custom-voice): (string, unit: none) (acc: ['write'])
+                siid 6: piid: 6 (hl-download-voice): (string, unit: none) (acc: ['write'])
+                siid 6: piid: 7 (hl-delete-voice): (string, unit: none) (acc: ['write'])
+                siid 6: piid: 8 (hl-voice-switch): (bool, unit: none) (acc: ['read', 'notify', 'write'])
+                siid 6: piid: 9 (hl-get-max-connect): (bool, unit: None) (acc: ['read', 'notify'])
+
+        ## Actions ##
+                siid 6: aiid 1 restart-device: in: [] -> out: []
+                siid 6: aiid 2 hl-upload-recode: in: [] -> out: []
+                siid 6: aiid 3 hl-speaker-voice: in: [] -> out: []
+                siid 6: aiid 4 hl-upload-log: in: [] -> out: []
+
+        ## Events ##
+                siid 6: eiid 2 (hl-enter-night-mode): (args: [])
+                siid 6: eiid 3 (hl-enter-day-mode): (args: [])
+                siid 6: eiid 4 (hl-event-motion): (args: [])
+                siid 6: eiid 5 (hl-people-motion): (args: [])
+                siid 6: eiid 6 (hl-baby-cry): (args: [])
